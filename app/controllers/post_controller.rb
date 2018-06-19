@@ -9,6 +9,7 @@ class PostController < ApplicationController
   def create
     #1.
     post = Post.create(title:params[:title],body:params[:body])
+    flash[:notice] ="글이 저장되었습니다."
     #1-1.
     # Post.create(:title=>params[:title], :body=>params[:body])
     #2.
@@ -27,13 +28,15 @@ class PostController < ApplicationController
   end
 
   def update
-      @post=Post.find(params[:id])
-    post=Post.update(title:params[:title], body:params[:body])
-    redirect_to "/post/#{post.id}"
+      post=Post.find(params[:id])
+      post.update(title:params[:title], body:params[:body])
+      flash[:notice]="글이 수정되었습니다."
+      redirect_to "/post/#{post.id}"
   end
   def destroy
     post=Post.find(params[:id])
     post.destroy
+    flash[:alert]="글이 삭제되었습니다."
     redirect_to '/'
   end
 end
