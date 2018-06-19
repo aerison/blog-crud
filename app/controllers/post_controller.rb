@@ -26,7 +26,7 @@ class PostController < ApplicationController
   def edit
     @post=Post.find(params[:id])
   end
-
+#
   def update
       post=Post.find(params[:id])
       post.update(title:params[:title], body:params[:body])
