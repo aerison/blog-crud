@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'post/new'
 
   get 'post/create'
+  get 'post/show'
+  get 'post/:id'=>'post#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
