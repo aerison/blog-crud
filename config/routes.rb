@@ -6,7 +6,15 @@ Rails.application.routes.draw do
 
   get 'post/create'
   get 'post/show'
+
+  #restful architecture
   get 'post/:id'=>'post#show'
+  get 'post/:id/destroy'=>'post#destroy'
+  #하나를 선택해서 수정
+  #사용자 폼을 보여주는 곳 edit(new)
+  get 'post/:id/edit'=>'post#edit'
+  #실제 디비에서 값을 업데이트 하는 곳 update(create)
+  get 'post/:id/update'=>'post#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
